@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/13 19:43:15 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/01 16:59:08 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/03 10:29:15 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ static char	*ft_check_precision(char *format, t_arg *arg)
 		}
 		arg->precision = n;
 	}
-	if (ft_printf_is_modifier(*format) != 1)
-		if (ft_printf_is_conversions(format) != 1)
-			write(1, "error 008, conversion missing\n", 30);
+	// if (ft_printf_is_modifier(*format) != 1)
+	// 	if (ft_printf_is_conversions(format) != 1)
+	// 		write(1, "error 008, conversion missing\n", 30);
 	return (format);
 }
 
