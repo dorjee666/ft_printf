@@ -6,7 +6,7 @@
 #    By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/05/06 19:24:32 by dphuntso          #+#    #+#              #
-#    Updated: 2018/06/03 10:24:45 by dphuntso         ###   ########.fr        #
+#    Updated: 2018/06/03 10:27:34 by dphuntso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,10 +44,10 @@ fclean: clean
 	@cd libft && make fclean
 	@rm -rf $(NAME)
 
-main:
-	@rm -rf $(NAME)
-	@rm -rf $(OBJS)
-	@gcc $(FLAGS) $(LIB) $(SRC)
-	@mv a.out $(NAME)
+# main:
+# 	@rm -rf $(NAME)
+# 	@rm -rf $(OBJS)
+# 	@gcc $(FLAGS) $(LIB) $(SRC)
+# 	@mv a.out $(NAME)
 
 re : fclean all
