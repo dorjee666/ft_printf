@@ -1,0 +1,85 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf_d_help.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/06/03 01:43:22 by dphuntso          #+#    #+#             */
+/*   Updated: 2018/06/03 10:08:38 by dphuntso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+
+static	long long	ftlen(long long sign)
+{
+	if (sign == 1)
+		return (0);
+	return (1);
+}
+
+static	char		*numtostr(long long n, int len, long long sign)
+{
+	char		*str;
+	long long	rem;
+
+	if ((str = (char *)malloc(len * sizeof(char) + 1)) == NULL)
+		return (NULL);
+	if (n > 0)
+	{
+		str[len--] = '\0';
+		while (n > 0)
+		{
+			rem = n % 10;
+			n = n / 10;
+			str[len--] = (char)(rem + 48);
+		}
+		if (sign == (-1))
+			str[0] = '-';
+	}
+	else
+	{
+		str[0] = '0';
+		str[1] = '\0';
+	}
+	return (str);
+}
+
+char				*ft_printf_d_itoa(long long n)
+{
+	char		*str;
+	long long	sign;
+	long long	ncopy;
+	int			len;
+
+	sign = (-1);
+	if (n >= 0)
+		sign = 1;
+	len = ftlen(sign);
+	ncopy = n * sign;
+	while (ncopy >= 10)
+	{
+		ncopy = ncopy / 10;
+		len++;
+	}
+	str = numtostr(n * sign, len + 1, sign);
+	return (str);
+}
+
+long long			ft_printf_get_long(t_arg *arg)
+{
+	if (arg->length[0] == 'l' && arg->length[1] == 'l')
+		return (va_arg(arg->ap, long long));
+	else if (arg->length[0] == 'l')
+		return ((long long)va_arg(arg->ap, long int));
+	else if (arg->length[0] == 'h' && arg->length[1] == 'h')
+		return ((char)va_arg(arg->ap, int));
+	else if (arg->length[0] == 'h')
+		return ((short)va_arg(arg->ap, int));
+	else if (arg->length[0] == 'j')
+		return (va_arg(arg->ap, long long));
+	else if (arg->length[0] == 'z')
+		return ((long long)va_arg(arg->ap, size_t));
+	return ((long long)va_arg(arg->ap, int));
+}
