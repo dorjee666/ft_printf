@@ -6,7 +6,7 @@
 #    By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/05/06 19:24:32 by dphuntso          #+#    #+#              #
-#    Updated: 2018/06/03 10:27:34 by dphuntso         ###   ########.fr        #
+#    Updated: 2018/06/03 10:30:17 by dphuntso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,14 +27,11 @@ OBJS = $(SRC:.c=.o)
 all : $(NAME)
 
 $(NAME):
-	#@cd libft && make
 	make -C libft/
 	cp libft/libft.a ./$(NAME)
 	@gcc $(FLAGS) -c ./ft_printf.h $(SRC)
 	@ar rc $(NAME) $(OBJS)
 	@ranlib $(NAME)
-	# @gcc $(FLAGS) $(LIB) $(SRC)
-	# @mv a.out $(NAME)
 
 clean:
 	@cd libft && make clean
@@ -43,11 +40,5 @@ clean:
 fclean: clean
 	@cd libft && make fclean
 	@rm -rf $(NAME)
-
-# main:
-# 	@rm -rf $(NAME)
-# 	@rm -rf $(OBJS)
-# 	@gcc $(FLAGS) $(LIB) $(SRC)
-# 	@mv a.out $(NAME)
 
 re : fclean all
