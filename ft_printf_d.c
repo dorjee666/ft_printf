@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/15 17:26:22 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/03 10:50:27 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/03 11:29:11 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,13 +112,13 @@ void	ft_printf_d_minus(int len, char *str, t_arg *arg)
 	ft_printf_d_minus_help(str, len, arg);
 }
 
-void	ft_printf_conversion_d(t_arg *arg)
+void	ft_printf_conversion_d(t_arg *arg, char *format)
 {
 	long long	num;
 	char		*str;
 	int			len;
 
-	num = ft_printf_get_long(arg);
+	num = ft_printf_get_long(arg, format);
 	str = ft_printf_d_itoa(num);
 	len = (int)ft_strlen(str);
 	if (num < 0)

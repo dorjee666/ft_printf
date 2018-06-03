@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/03 01:43:22 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/03 10:08:38 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/03 11:30:42 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ char				*ft_printf_d_itoa(long long n)
 	return (str);
 }
 
-long long			ft_printf_get_long(t_arg *arg)
+long long			ft_printf_get_long(t_arg *arg, char *format)
 {
 	if (arg->length[0] == 'l' && arg->length[1] == 'l')
 		return (va_arg(arg->ap, long long));
@@ -81,5 +81,5 @@ long long			ft_printf_get_long(t_arg *arg)
 		return (va_arg(arg->ap, long long));
 	else if (arg->length[0] == 'z')
 		return ((long long)va_arg(arg->ap, size_t));
-	return ((long long)va_arg(arg->ap, int));
+	return ((long long)va_arg(arg->ap, long int));
 }
