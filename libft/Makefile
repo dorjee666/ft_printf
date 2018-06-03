@@ -6,7 +6,7 @@
 #    By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/21 10:16:11 by dphuntso          #+#    #+#              #
-#    Updated: 2018/05/31 23:19:24 by dphuntso         ###   ########.fr        #
+#    Updated: 2018/06/03 12:12:19 by dphuntso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,7 @@ OBJS = $(SRC:.c=.o)
 all : $(NAME)
 
 $(NAME):
-	@gcc $(FLAGS) -c ./libft.h $(SRC)
+	@gcc $(FLAGS) -c -I ./ $(SRC)
 	@ar rc $(NAME) $(OBJS)
 	@ranlib $(NAME)
 
