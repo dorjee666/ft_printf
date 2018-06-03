@@ -6,7 +6,7 @@
 #    By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/05/06 19:24:32 by dphuntso          #+#    #+#              #
-#    Updated: 2018/06/03 12:17:18 by dphuntso         ###   ########.fr        #
+#    Updated: 2018/06/03 12:19:45 by dphuntso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRC = ft_printf.c ft_printf_conversion.c ft_printf_d.c ft_printf_d_help.c \
 
 LIB = libft/libft.a
 
-INCLUDES = -I includes/
+INCLUDES = -I includes/ -I libft/
 
 OBJS = $(SRC:.c=.o)
 
