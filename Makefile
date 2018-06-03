@@ -6,7 +6,7 @@
 #    By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/05/06 19:24:32 by dphuntso          #+#    #+#              #
-#    Updated: 2018/06/03 11:38:29 by dphuntso         ###   ########.fr        #
+#    Updated: 2018/06/03 12:08:48 by dphuntso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ $(NAME):
 
 clean:
 	@cd libft && make clean
-	@rm -rf $(OBJS) ft_printf.h.gch
+	@rm -rf $(OBJS)
 
 fclean: clean
 	@cd libft && make fclean
