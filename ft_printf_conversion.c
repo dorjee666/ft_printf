@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/14 15:50:10 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/01 23:28:31 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/03 11:32:16 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char	*ft_printf_conversion(char *format, t_arg *arg)
 	if (ft_printf_is_conversions(format) == (-1))
 		return (NULL);
 	if (*format == 'd' || *format == 'i' || *format == 'D')
-		ft_printf_conversion_d(arg);
+		ft_printf_conversion_d(arg, format);
 	else if (*format == 'c' || *format == 'C')
 		ft_printf_conversion_c(arg);
 	else if (*format == 's' || *format == 'S')

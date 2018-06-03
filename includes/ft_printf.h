@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/07 12:58:04 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/03 11:29:45 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/03 11:32:01 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ char	*ft_printf_conversion(char *format, t_arg *arg);
 **	ft_printf_d.c
 */
 
-void		ft_printf_conversion_d(t_arg *arg);
+void		ft_printf_conversion_d(t_arg *arg, char *format);
 
 /*
 **	ft_printf_d_help.c
