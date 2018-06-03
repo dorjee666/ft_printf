@@ -6,7 +6,7 @@
 #    By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/05/06 19:24:32 by dphuntso          #+#    #+#              #
-#    Updated: 2018/06/03 10:47:43 by dphuntso         ###   ########.fr        #
+#    Updated: 2018/06/03 11:38:29 by dphuntso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,5 +42,8 @@ clean:
 fclean: clean
 	@cd libft && make fclean
 	@rm -rf $(NAME)
+
+main:
+	gcc main.c $(NAME) $(INCLUDES)
 
 re : fclean all
