@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/07 12:58:04 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/03 12:19:32 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/03 12:24:22 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdio.h>
-# include "libft.h"
+# include "../libft/libft.h"
 
 #define CONVERSIONS "sSpdDioOuUxXcC"
 
