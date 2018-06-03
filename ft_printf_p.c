@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 11:42:30 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/03 11:53:39 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/03 11:54:21 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_printf_p_help(t_arg *arg, char *str)
 	write(1, "0x", 2);
 	arg->ret += len;
 	arg->ret += 2;
-	ft_printf_blah(str);
+	ft_printf_blah(str, len);
 	if (arg->flag[1] == '-')
 		ft_printf_putchar(arg->width - len - 2, " ", arg);
 }
