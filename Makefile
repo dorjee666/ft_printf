@@ -6,7 +6,7 @@
 #    By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/05/06 19:24:32 by dphuntso          #+#    #+#              #
-#    Updated: 2018/06/03 12:15:44 by dphuntso         ###   ########.fr        #
+#    Updated: 2018/06/03 12:17:18 by dphuntso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ all : $(NAME)
 $(NAME):
 	make -C ./libft/
 	cp libft/libft.a ./$(NAME)
-	gcc $(FLAGS) -c -I $(INCLUDES) $(SRC)
+	gcc $(FLAGS) -c $(INCLUDES) $(SRC)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
 
