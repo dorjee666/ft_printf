@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 11:42:30 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/03 15:15:56 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/03 15:25:31 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,24 @@
 
 static void	ft_printf_blah(char *str, int len)
 {
-	char temp;
+	int		i;
+	char	temp;
 
+	i = 0;
 	while (len-- > 0)
 	{
-		if (*str >= 'A' && *str <= 'F')
+		if (str[i] >= 'A' && str[i] <= 'F')
 		{
-			temp = 'a' + (*str - 'A');
+			temp = 'a' + (str[i] - 'A');
 			write(1, &temp, 1);
 		}
 		else
-			write(1, str, 1);
-		str++;
+			write(1, &str[i], 1);
+		i++;
 	}
 }
 
-void	ft_printf_p_help(t_arg *arg, char *str)
+void		ft_printf_p_help(t_arg *arg, char *str)
 {
 	int len;
 
@@ -39,13 +41,12 @@ void	ft_printf_p_help(t_arg *arg, char *str)
 	write(1, "0x", 2);
 	arg->ret += len;
 	arg->ret += 2;
-	// write(1, str, len);
 	ft_printf_blah(str, len);
 	if (arg->flag[1] == '-')
 		ft_printf_putchar(arg->width - len - 2, " ", arg);
 }
 
-void	ft_printf_conversion_p(t_arg *arg)
+void		ft_printf_conversion_p(t_arg *arg)
 {
 	char				*str;
 	unsigned long long	num;

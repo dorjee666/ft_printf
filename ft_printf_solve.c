@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/13 19:43:15 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/03 14:55:23 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/03 15:20:47 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,6 @@ static char	*ft_check_precision(char *format, t_arg *arg)
 		}
 		arg->precision = n;
 	}
-	// if (ft_printf_is_modifier(*format) != 1)
-	// 	if (ft_printf_is_conversions(format) != 1)
-	// 		write(1, "error 008, conversion missing\n", 30);
 	return (format);
 }
 
@@ -85,17 +82,20 @@ static char	*ft_printf_modifier(char *format, t_arg *arg)
 	return (format);
 }
 
+/*
+**	// if ((format = ft_check_flag(format, arg)) == NULL)
+**	// 	write(1, "check_flag, error message\n", 11 + 15);
+**	// if ((format = ft_check_width(format, arg)) == NULL)
+**	// 	write(1, "check_width, error message\n", 12 + 15);
+**	// if ((format = ft_check_precision(format, arg)) == NULL)
+**	// 	write(1, "check precision, error message\n", 15 + 15);
+**	// if ((format = ft_printf_modifier(format, arg)) == NULL)
+**	// 	write(1, "check length, error message\n", 13 + 15);
+*/
+
 char		*ft_printf_solve(char *format, t_arg *arg)
 {
 	format++;
-	// if ((format = ft_check_flag(format, arg)) == NULL)
-	// 	write(1, "check_flag, error message\n", 11 + 15);
-	// if ((format = ft_check_width(format, arg)) == NULL)
-	// 	write(1, "check_width, error message\n", 12 + 15);
-	// if ((format = ft_check_precision(format, arg)) == NULL)
-	// 	write(1, "check precision, error message\n", 15 + 15);
-	// if ((format = ft_printf_modifier(format, arg)) == NULL)
-	// 	write(1, "check length, error message\n", 13 + 15);
 	format = ft_check_flag(format, arg);
 	format = ft_check_width(format, arg);
 	format = ft_check_precision(format, arg);
