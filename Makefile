@@ -44,6 +44,9 @@ fclean: clean
 	@/bin/rm -rf $(OBJS_DIR)
 	@rm -rf $(NAME)
 
+main:
+	gcc main.c $(NAME) -I $(INCS_DIR)
+
 re: fclean all
 
 # tell Make that they're not associated with files
