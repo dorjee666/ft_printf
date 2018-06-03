@@ -6,7 +6,7 @@
 #    By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/05/06 19:24:32 by dphuntso          #+#    #+#              #
-#    Updated: 2018/06/03 10:17:23 by dphuntso         ###   ########.fr        #
+#    Updated: 2018/06/03 10:24:45 by dphuntso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,9 +27,12 @@ OBJS = $(SRC:.c=.o)
 all : $(NAME)
 
 $(NAME):
-	@cd libft && make
-	@ar rc $(NAME) $(OBJS) libft/*.o
-	@ranlib $(NAME) $(libft/libft.a)
+	#@cd libft && make
+	make -C libft/
+	cp libft/libft.a ./$(NAME)
+	@gcc $(FLAGS) -c ./ft_printf.h $(SRC)
+	@ar rc $(NAME) $(OBJS)
+	@ranlib $(NAME)
 	# @gcc $(FLAGS) $(LIB) $(SRC)
 	# @mv a.out $(NAME)
 
