@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 17:44:48 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/03 09:31:43 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/03 11:23:11 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,8 @@ void	ft_printf_conversion_s(t_arg *arg, char *format)
 			ft_printf_ws_minus(str1, len, arg);
 		else
 			ft_printf_ws_nominus(str1, len, arg);
-		free(str1);
-		str1 = NULL;
+		// free(str1);
+		// str1 = NULL;
 		return ;
 	}
 	str = va_arg(arg->ap, char *);
@@ -92,6 +92,6 @@ void	ft_printf_conversion_s(t_arg *arg, char *format)
 		ft_printf_s_minus(str, len, arg);
 	else
 		ft_printf_s_nominus(str, len, arg);
-	free(str);
-	str = NULL;
+	// free(str);
+	// str = NULL;
 }
