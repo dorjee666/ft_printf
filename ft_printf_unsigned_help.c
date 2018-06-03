@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/03 02:01:38 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/03 10:10:27 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/03 10:57:51 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,11 @@ char				*ft_printf_itoa(unsigned long long n)
 		len++;
 	}
 	str = numtostr(n, len + 1);
+	if (ft_strlen(str) > 1)
+	{
+		while (*str == '0')
+			str++;
+	}
 	return (str);
 }
 
