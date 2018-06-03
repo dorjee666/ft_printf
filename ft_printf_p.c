@@ -6,24 +6,27 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 11:42:30 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/03 11:51:58 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/03 11:53:39 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-// static void	ft_printf_blah(char *str, int len)
-// {
-// 	char temp;
+static void	ft_printf_blah(char *str, int len)
+{
+	char temp;
 
-// 	while (len-- > 0)
-// 	{
-// 		if (*str >= 'A' || *str <= 'F')
-// 		{
-// 			temp = *str - ('A' - 'a')
-// 		}
-// 	}
-// }
+	while (len-- > 0)
+	{
+		if (*str >= 'A' || *str <= 'F')
+		{
+			temp = *str - ('A' - 'a');
+			write(1, &temp, 1);
+		}
+		else
+			write(1, &str, 1);
+	}
+}
 
 void	ft_printf_p_help(t_arg *arg, char *str)
 {
@@ -35,8 +38,7 @@ void	ft_printf_p_help(t_arg *arg, char *str)
 	write(1, "0x", 2);
 	arg->ret += len;
 	arg->ret += 2;
-	write(1, str, len);
-	// ft_printf_blah(str);
+	ft_printf_blah(str);
 	if (arg->flag[1] == '-')
 		ft_printf_putchar(arg->width - len - 2, " ", arg);
 }
