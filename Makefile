@@ -26,13 +26,13 @@ LIBF = $(MAKE) $(LIB) fclean
 all: $(NAME)
 
 $(NAME):
-	@$(LIBM)
-	@$(CC) $(FLAGS) -c -I$(INCS_DIR) $(CFILES)
-	@cp libft/libft.a $(NAME)
-	@ar rcs $(NAME) *.o
-	@ranlib $(NAME)
-	@mkdir $(OBJS_DIR)
-	@mv *.o $(OBJS_DIR)
+	$(LIBM)
+	$(CC) $(FLAGS) -c -I$(INCS_DIR) $(CFILES)
+	cp libft/libft.a $(NAME)
+	ar rcs $(NAME) *.o
+	ranlib $(NAME)
+	mkdir $(OBJS_DIR)
+	mv *.o $(OBJS_DIR)
 
 clean:
 	@$(LIBC)
