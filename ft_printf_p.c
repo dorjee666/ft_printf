@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 11:42:30 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/03 11:54:21 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/03 11:55:39 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	ft_printf_blah(char *str, int len)
 	{
 		if (*str >= 'A' || *str <= 'F')
 		{
-			temp = *str - ('A' - 'a');
+			temp = 'a' + (*str - 'A');
 			write(1, &temp, 1);
 		}
 		else
