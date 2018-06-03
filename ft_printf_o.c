@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 21:17:14 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/03 11:22:41 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/03 12:00:47 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_printf_o_help(char *str, int len, t_arg *arg)
 			else
 				ft_printf_putchar(arg->width - len, " ", arg);
 		}
-	if (arg->flag[3] == '#')
+	if (arg->flag[3] == '#' && len > 1)
 		ft_printf_putchar(1, "0", arg);
 	arg->ret += len;
 	write(1, str, len);
