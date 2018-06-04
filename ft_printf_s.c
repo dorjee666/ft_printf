@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 17:44:48 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/03 15:59:52 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/03 22:03:32 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_printf_s_minus(char *str, int len, t_arg *arg)
 			arg->ret += (int)ft_strlen(str);
 			write(1, str, ft_strlen(str));
 		}
-		ft_printf_putchar(arg->width - len, " ", arg);
+		ft_printf_putchar(arg->width - (int)ft_strlen(str), " ", arg);
 	}
 }
 
@@ -53,7 +53,7 @@ void	ft_printf_s_nominus(char *str, int len, t_arg *arg)
 	}
 	else
 	{
-		ft_printf_putchar(arg->width - len, " ", arg);
+		ft_printf_putchar(arg->width - (int)ft_strlen(str), " ", arg);
 		if (!str)
 			arg->ret += ft_printf_putstr(6, "(null)");
 		else
