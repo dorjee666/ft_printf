@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/30 15:42:53 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/03 21:49:57 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/03 21:58:15 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	ft_printf_x_help(t_arg *arg, char *str, char ch, int len)
 		if (arg->precision < 0 && arg->flag[2] != '0')
 			ft_printf_putchar(arg->width - len, " ", arg);
 	}
-	if (arg->flag[3] == '#')
+	if (arg->flag[3] == '#' && ft_strlen(str) > 1)
 	{
 		if (ch == 'x')
 			write(1, "0x", 2);
