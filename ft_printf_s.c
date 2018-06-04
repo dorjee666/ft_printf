@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 17:44:48 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/03 22:28:11 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/03 22:46:08 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 void	ft_printf_s_minus(char *str, int len, t_arg *arg)
 {
+	if (str && *str == '\0')
+	{
+		ft_printf_putchar(arg->width, " ", arg);
+		return ;
+	}
+	if (!str)
+			arg->ret += ft_printf_putstr(6, "(null)");
 	if (arg->precision <= len && arg->precision >= 0)
 	{
-		if (!str)
-			arg->ret += ft_printf_putstr(6, "(null)");
-		else
-		{
-			len = (int)ft_strlen(str);
+		if (str)
 			arg->ret += ft_printf_putstr(arg->precision, str);
-		}
 		ft_printf_putchar(arg->width - arg->precision, " ", arg);
 	}
 	else
 	{
-		if (!str)
-			arg->ret += ft_printf_putstr(6, "(null)");
-		else
+		if (str)
 		{
 			arg->ret += (int)ft_strlen(str);
 			write(1, str, ft_strlen(str));
@@ -46,10 +46,7 @@ void	ft_printf_s_nominus(char *str, int len, t_arg *arg)
 		if (!str)
 			arg->ret += ft_printf_putstr(6, "(null)");
 		else
-		{
-			len = (int)ft_strlen(str);
 			arg->ret += ft_printf_putstr(arg->precision, str);
-		}
 	}
 	else
 	{
