@@ -6,13 +6,13 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/07 12:58:04 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/03 15:37:12 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/03 22:59:07 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# define CONVERSIONS "sSpdDioOuUxXcC"
+# define CONVERSIONS "sSpdDioOuUxXcC%"
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -124,5 +124,11 @@ void				ft_printf_conversion_u(t_arg *arg);
 */
 
 void				ft_printf_conversion_x(t_arg *arg, char ch);
+
+/*
+**	ft_printf_conversion_percent.c
+*/
+
+void				ft_printf_percent(t_arg *arg);
 
 #endif
