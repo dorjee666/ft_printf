@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/15 17:26:22 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/03 15:43:13 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/03 23:36:02 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,7 @@ void	ft_printf_d_minus_help(char *str, int len, t_arg *arg)
 {
 	if (arg->flag[1] != '-')
 	{
-		if (arg->flag[0] == ' ' || arg->flag[0] == '+')
-			arg->width--;
+		arg->width--;
 		if (arg->width > arg->precision && arg->width > len)
 		{
 			if (arg->precision >= 0 && arg->precision >= len)
