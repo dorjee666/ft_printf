@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 17:44:48 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/03 22:46:08 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/03 22:49:47 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,11 @@ void	ft_printf_s_minus(char *str, int len, t_arg *arg)
 
 void	ft_printf_s_nominus(char *str, int len, t_arg *arg)
 {
+	if (str && *str == '\0')
+	{
+		ft_printf_putchar(arg->width, " ", arg);
+		return ;
+	}
 	if (arg->precision <= len && arg->precision >= 0)
 	{
 		ft_printf_putchar(arg->width - arg->precision, " ", arg);
