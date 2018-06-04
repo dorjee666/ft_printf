@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/30 15:42:53 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/03 15:30:22 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/03 21:49:57 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	ft_printf_x_help_help(t_arg *arg, char *str, int len, char ch)
 		else if (arg->width > arg->precision)
 		{
 			if (arg->width > len)
-				ft_printf_putchar(arg->width - arg->precision, " ", arg);
+				ft_printf_putchar(arg->width - len, " ", arg);
 		}
 	}
 }
