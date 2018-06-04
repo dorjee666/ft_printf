@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/07 12:58:04 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/03 23:11:55 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/03 23:17:56 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,6 @@ void				ft_printf_conversion_x(t_arg *arg, char ch);
 **	ft_printf_conversion_percent.c
 */
 
-void				ft_printf_percent(t_arg *arg);
+void				ft_printf_conversion_percent(t_arg *arg);
 
 #endif
