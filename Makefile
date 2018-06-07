@@ -1,49 +1,53 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/05/06 19:24:32 by dphuntso          #+#    #+#              #
-#    Updated: 2018/06/04 00:30:25 by dphuntso         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-# NAME = a.out 
+MAKE = make -C
 NAME = libftprintf.a
-
 FLAGS = -Wall -Wextra -Werror
+CC = gcc
+HEADER = -I /includes
 
-SRC = ft_printf.c ft_printf_conversion.c ft_printf_d.c ft_printf_d_help.c \
+# directories
+SRCS_DIR = ./
+INCS_DIR = ./includes/
+OBJS_DIR = ./objs/
+
+FILES = ft_printf.c ft_printf_conversion.c ft_printf_d.c ft_printf_d_help.c \
 		ft_printf_helper.c ft_printf_o.c ft_printf_p.c ft_printf_s.c \
 		ft_printf_u.c ft_printf_unsigned_help.c ft_printf_x.c \
-		ft_printf_solve.c helper.c ft_printf_conversion_percent.c
+		ft_printf_solve.c helper.c main.c ft_printf_conversion_percent.c
 
-LIB = libft/libft.a
+CFILES = $(patsubst %, $(SRCS_DIR)%, $(FILES))
+OFILES = $(patsubst %.c, $(OBJS_DIR)%.o, $(FILES))
 
-INCLUDES = -I includes/ -I libft/
+LIB = ./libft/
+LIBM = $(MAKE) $(LIB)
+LIBR = $(MAKE) $(LIB) re
+LIBC = $(MAKE) $(LIB) clean
+LIBF = $(MAKE) $(LIB) fclean
 
-OBJS = $(SRC:.c=.o)
-
-all : $(NAME)
+all: $(NAME)
 
 $(NAME):
-	make -C ./libft/
-	cp libft/libft.a ./$(NAME)
-	gcc $(FLAGS) -c $(INCLUDES) $(SRC)
-	ar rc $(NAME) $(OBJS)
+	$(LIBM)
+	$(CC) $(FLAGS) -c -I$(INCS_DIR) $(CFILES)
+	cp libft/libft.a $(NAME)
+	ar rcs $(NAME) *.o
 	ranlib $(NAME)
+	mkdir $(OBJS_DIR)
+	mv *.o $(OBJS_DIR)
 
 clean:
-	@cd libft && make clean
-	@rm -rf $(OBJS)
+	@$(LIBC)
+	@/bin/rm -rf $(OBJS_DIR)
 
 fclean: clean
-	@cd libft && make fclean
+	@$(LIBF)
+	@/bin/rm -f $(NAME) *.a
+	@/bin/rm -rf $(OBJS_DIR)
 	@rm -rf $(NAME)
 
-main:
-	gcc main.c $(NAME) $(INCLUDES)
+# main:
+# 	gcc main.c $(NAME) -I $(INCS_DIR)
 
-re : fclean all
+re: fclean all
+
+# tell Make that they're not associated with files
+.PHONY: all clean fclean re debug

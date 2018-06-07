@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/07 12:58:01 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/03 23:11:43 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/07 16:01:00 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_printf_init_reset_arg(t_arg *arg)
 	ft_printf_init_arg_flag(arg);
 }
 
-int		ft_print(char *format, t_arg *arg)
+int		ft_print_print(char *format, t_arg *arg)
 {
 	while (*format)
 	{
@@ -69,7 +69,7 @@ int		ft_printf(const char *format, ...)
 	arg->ret = 0;
 	va_start(arg->ap, format);
 	va_copy(ap2, arg->ap);
-	if (ft_print((char *)format, arg) == (-1))
+	if (ft_print_print((char *)format, arg) == (-1))
 		return (-1);
 	va_end(ap2);
 	ret = arg->ret;
