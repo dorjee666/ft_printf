@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 11:42:30 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/03 23:43:48 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/07 15:33:28 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void		ft_printf_conversion_p(t_arg *arg)
 	num = (unsigned long long)va_arg(arg->ap, unsigned long long int);
 	str = ft_itoa_base(num, 16);
 	ft_printf_p_help(arg, str);
-	if (!str)
-		free(str);
-	str = NULL;
+	// if (!str)
+	// 	free(str);
+	// str = NULL;
 }

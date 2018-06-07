@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/15 17:26:22 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/03 23:44:33 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/07 15:33:55 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,7 @@ void	ft_printf_conversion_d(t_arg *arg, char *format)
 	}
 	else
 		ft_printf_d_plus(len, str, arg);
-	if (!str)
-		free(str);
-	str = NULL;
+	// if (!str)
+	// 	free(str);
+	// str = NULL;
 }
