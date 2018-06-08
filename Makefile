@@ -12,7 +12,7 @@ OBJS_DIR = ./objs/
 FILES = ft_printf.c ft_printf_conversion.c ft_printf_d.c ft_printf_d_help.c \
 		ft_printf_helper.c ft_printf_o.c ft_printf_p.c ft_printf_s.c \
 		ft_printf_u.c ft_printf_unsigned_help.c ft_printf_x.c \
-		ft_printf_solve.c helper.c main.c ft_printf_conversion_percent.c
+		ft_printf_solve.c helper.c ft_printf_conversion_percent.c
 
 CFILES = $(patsubst %, $(SRCS_DIR)%, $(FILES))
 OFILES = $(patsubst %.c, $(OBJS_DIR)%.o, $(FILES))
@@ -44,8 +44,8 @@ fclean: clean
 	@/bin/rm -rf $(OBJS_DIR)
 	@rm -rf $(NAME)
 
-# main:
-# 	gcc main.c $(NAME) -I $(INCS_DIR)
+main:
+	gcc main.c $(NAME) -I $(INCS_DIR)
 
 re: fclean all
 
