@@ -6,77 +6,69 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 21:17:14 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/07 18:24:00 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/09 14:16:46 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_printf_o_help_help(t_arg *arg, int len)
+void	ft_printf_o_print(t_arg *arg, char *str, int len)
 {
-	if (arg->precision > 0 && arg->precision > len)
+	if (arg->flag[3] == '#' && str[0] == '0')
 	{
-		if (arg->width > arg->precision)
-			ft_printf_putchar(arg->width - arg->precision, " ", arg);
+		return ;
 	}
-	else if (arg->precision >= 0)
-		ft_printf_putchar(arg->width - len, " ", arg);
-	else if (arg->precision < 0)
+	else if (str[0] == '0' && arg->precision == 0)
 	{
-		if (arg->flag[2] == '0')
-			ft_printf_putchar(arg->width - len, "0", arg);
-		else
-			ft_printf_putchar(arg->width - len, " ", arg);
-	}
-}
-
-void	ft_o_start(t_arg *arg)
-{
-	if (arg->precision == 0)
-	{
-		ft_printf_putchar(arg->width - 1, " ", arg);
-		if (arg->flag[3] == '#')
-			ft_printf_putchar(1, "0", arg);
-		else
-			ft_printf_putchar(1, " ", arg);
-	}
-	else if (arg->precision > 0)
-	{
-		ft_printf_putchar(arg->width - arg->precision, " ", arg);
-		ft_printf_putchar(arg->precision, "0", arg);
+		return ;
 	}
 	else
 	{
-		if (arg->flag[2] == '0')
-			ft_printf_putchar(arg->width , "0", arg);
-		else
+		arg->ret += len;
+		write(1, str, len);
+	}
+}
+
+
+void	ft_printf_o_help_help(t_arg *arg, char *str, int len)
+{
+	ft_printf_o_print(arg, str, len);
+	if (arg->flag[1] == '-')
+	{
+		if (arg->precision > len)
 		{
-			if (arg->flag[3] == '#')
-				ft_printf_putchar(1, "0", arg);
-			else
-				ft_printf_putchar(1, " ", arg);
+			if (arg->width > arg->precision)
+				ft_printf_putchar(arg->width - arg->precision, " ", arg);
 		}
+		else if (arg->width > arg->precision)
+			if (arg->width > len)
+				ft_printf_putchar(arg->width - len, " ", arg);
 	}
 }
 
 void	ft_printf_o_help(char *str, int len, t_arg *arg)
 {
-	if (str[0] == '0')
-	{
-		ft_o_start(arg);
-		return ;
-	}
 	if (arg->flag[3] == '#')
-		if (arg->precision <= 0)
-			arg->precision = 1;
+		arg->width -= 1;
 	if (arg->flag[1] != '-')
-		ft_printf_o_help_help(arg, len);
-	if (arg->precision > 0)
+	{
+		if (arg->width > arg->precision && arg->width > len)
+		{
+			if (arg->precision >= 0 && arg->precision > len)
+				ft_printf_putchar(arg->width - arg->precision, " ", arg);
+			else if (arg->precision >= 0 && len > arg->precision)
+				ft_printf_putchar(arg->width - len, " ", arg);
+		}
+		if (arg->precision < 0 && arg->flag[2] != '0')
+			ft_printf_putchar(arg->width - len, " ", arg);
+	}
+	if (arg->precision > len)
 		ft_printf_putchar(arg->precision - len, "0", arg);
-	arg->ret += len;
-	write(1, str, len);
-	if (arg->flag[1] == '-')
-		ft_printf_putchar(arg->width - len, " ", arg);
+	else if (arg->flag[3] == '#')
+		ft_printf_putchar(1, "0", arg);
+	if (arg->precision < 0 && arg->flag[2] == '0' && arg->flag[1] != '-')
+		ft_printf_putchar(arg->width - len, "0", arg);
+	ft_printf_o_help_help(arg, str, len);
 }
 
 void	ft_printf_conversion_o(t_arg *arg)
