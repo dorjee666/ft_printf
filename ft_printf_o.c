@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 21:17:14 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/09 14:16:46 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/09 15:00:34 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	ft_printf_o_print(t_arg *arg, char *str, int len)
 	}
 	else if (str[0] == '0' && arg->precision == 0)
 	{
+		if (arg->width > 0)
+			ft_printf_putchar(1, " ", arg);
 		return ;
 	}
 	else
