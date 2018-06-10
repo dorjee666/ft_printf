@@ -6,13 +6,28 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/30 15:42:53 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/07 15:33:29 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/09 18:36:26 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_printf_x_print(char *str, char ch, int len)
+void	ft_printf_x_x_print(t_arg *arg, char *str, int len)
+{
+	if (str[0] == '0' && arg->precision == 0)
+	{
+		if (arg->width > 0)
+			ft_printf_putchar(1, " ", arg);
+		return ;
+	}
+	else
+	{
+		arg->ret += len;
+		write(1, str, len);
+	}
+}
+
+void	ft_printf_x_print(t_arg *arg, char *str, char ch, int len)
 {
 	int		i;
 	int		temp;
@@ -36,12 +51,15 @@ void	ft_printf_x_print(char *str, char ch, int len)
 	}
 	else
 		write(1, str, len);
+	arg->ret += len;
 }
 
 void	ft_printf_x_help_help(t_arg *arg, char *str, int len, char ch)
 {
-	arg->ret += len;
-	ft_printf_x_print(str, ch, len);
+	if (str[0] == '0')
+		ft_printf_x_x_print(arg, str, len);
+	else
+		ft_printf_x_print(arg, str, ch, len);
 	if (arg->flag[1] == '-')
 	{
 		if (arg->precision > len)

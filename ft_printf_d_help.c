@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/03 01:43:22 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/03 11:34:20 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/09 17:48:08 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,24 @@ long long			ft_printf_get_long(t_arg *arg, char *format)
 	else if (arg->length[0] == 'z')
 		return ((long long)va_arg(arg->ap, size_t));
 	return ((long long)va_arg(arg->ap, int));
+}
+
+int					ft_printf_d_print(t_arg *arg, char *str, int len)
+{
+	if (str[0] == '0' && arg->precision == 0)
+	{
+		if (arg->width > 0)
+		{
+			write(1, " ", 1);
+			return (1);
+		}
+		else
+			return (0);
+	}
+	else
+	{
+		write(1, str, len);
+		return (len);
+	}
+	return (0);
 }

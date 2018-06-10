@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/15 17:26:22 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/07 15:33:55 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/09 17:43:57 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	ft_printf_d_plus_help(char *str, int len, t_arg *arg)
 			arg->width--;
 		if (arg->width > arg->precision && arg->width > len)
 		{
-			if (arg->precision >= 0 && arg->precision >= len)
+			if (arg->precision >= 0 && arg->precision > len)
 				ft_printf_putchar(arg->width - arg->precision, " ", arg);
-			else if (arg->precision >= 0 && len > arg->precision)
+			else if (arg->precision >= 0 && len >= arg->precision)
 				ft_printf_putchar(arg->width - len, " ", arg);
 		}
 		if (arg->precision < 0 && arg->flag[2] != '0')
@@ -35,7 +35,7 @@ void	ft_printf_d_plus_help(char *str, int len, t_arg *arg)
 			ft_printf_putchar(arg->width - len, "0", arg);
 		if (arg->precision > len)
 			ft_printf_putchar(arg->precision - len, "0", arg);
-		arg->ret += ft_printf_putstr(len, str);
+		arg->ret += ft_printf_d_print(arg, str, ft_strlen(str));
 	}
 }
 
@@ -54,7 +54,7 @@ void	ft_printf_d_plus(int len, char *str, t_arg *arg)
 		}
 		if (arg->precision > len)
 			ft_printf_putchar(arg->precision - len, "0", arg);
-		arg->ret += ft_printf_putstr(len, str);
+		arg->ret += ft_printf_d_print(arg, str, ft_strlen(str));
 		if (arg->width > arg->precision && arg->width > len)
 		{
 			if (arg->precision > len)
@@ -85,7 +85,7 @@ void	ft_printf_d_minus_help(char *str, int len, t_arg *arg)
 			ft_printf_putchar(arg->width - len, "0", arg);
 		if (arg->precision > len)
 			ft_printf_putchar(arg->precision - len, "0", arg);
-		arg->ret += ft_printf_putstr(len, str);
+		arg->ret += ft_printf_d_print(arg, str, ft_strlen(str));
 	}
 }
 
@@ -98,8 +98,7 @@ void	ft_printf_d_minus(int len, char *str, t_arg *arg)
 			arg->width--;
 		if (arg->precision > len)
 			ft_printf_putchar(arg->precision - len, "0", arg);
-		write(1, str, ft_strlen(str));
-		arg->ret += ft_strlen(str);
+		arg->ret += ft_printf_d_print(arg, str, ft_strlen(str));
 		if (arg->width > arg->precision && arg->width > len)
 		{
 			if (arg->precision > len)
