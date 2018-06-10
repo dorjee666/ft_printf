@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 21:17:14 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/09 15:00:34 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/09 18:54:30 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	ft_printf_o_print(t_arg *arg, char *str, int len)
 		write(1, str, len);
 	}
 }
-
 
 void	ft_printf_o_help_help(t_arg *arg, char *str, int len)
 {
@@ -81,7 +80,7 @@ void	ft_printf_conversion_o(t_arg *arg)
 	num = ft_printf_get_unsigned_long(arg);
 	str = ft_itoa_base(num, 8);
 	ft_printf_o_help(str, ft_strlen(str), arg);
-	// if (!str)
-	// 	free(str);
+	if (!str)
+		free(str);
 	str = NULL;
 }

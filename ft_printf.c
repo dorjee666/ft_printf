@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/07 12:58:01 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/07 16:01:00 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/09 19:34:01 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ int		ft_printf(const char *format, ...)
 		return (-1);
 	va_end(ap2);
 	ret = arg->ret;
-	free(arg);
+	if (!arg)
+		free(arg);
 	arg = NULL;
 	return (ret);
 }

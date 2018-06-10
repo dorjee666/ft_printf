@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 17:44:48 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/07 15:33:42 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/09 18:56:46 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_printf_s_minus(char *str, int len, t_arg *arg)
 		return ;
 	}
 	if (!str)
-			arg->ret += ft_printf_putstr(6, "(null)");
+		arg->ret += ft_printf_putstr(6, "(null)");
 	if (arg->precision <= len && arg->precision >= 0)
 	{
 		if (str)
@@ -137,7 +137,7 @@ void	ft_printf_conversion_s(t_arg *arg, char *format)
 		ft_printf_s_minus(str, 6, arg);
 	else
 		ft_printf_s_nominus(str, 6, arg);
-	// if (!str)
-	// 	free(str);
-	// str = NULL;
+	if (!str)
+		free(str);
+	str = NULL;
 }
