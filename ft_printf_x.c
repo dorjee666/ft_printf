@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/30 15:42:53 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/09 18:51:09 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/11 20:46:23 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,5 @@ void	ft_printf_conversion_x(t_arg *arg, char ch)
 	str = ft_itoa_base(num, 16);
 	len = ft_strlen(str);
 	ft_printf_x_help(arg, str, ch, len);
-	if (!str)
-		free(str);
-	str = NULL;
+	ft_strdel(&str);
 }

@@ -45,7 +45,7 @@ fclean: clean
 	@rm -rf $(NAME)
 
 main:
-	gcc main.c $(NAME) -I $(INCS_DIR)
+	gcc main.c $(NAME) -I $(INCS_DIR) -g
 
 re: fclean all
 
