@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/30 14:35:23 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/12 18:33:21 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/12 20:14:26 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,7 @@ void				ft_printf_conversion_u(t_arg *arg)
 	num = ft_printf_get_unsigned_long(arg);
 	str = base_u(num, 10);
 	ft_printf_u_help(arg, str, (int)ft_strlen(str));
-	ft_strdel(&str);
+	if (!str)
+		free(str);
+	str = NULL;
 }
