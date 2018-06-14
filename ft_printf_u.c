@@ -6,11 +6,12 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/30 14:35:23 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/12 20:17:36 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/14 15:00:24 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 unsigned long long	ft_pow_u(unsigned long long nb, unsigned long long pow)
 {
@@ -78,7 +79,6 @@ void				ft_printf_conversion_u(t_arg *arg)
 	num = ft_printf_get_unsigned_long(arg);
 	str = base_u(num, 10);
 	ft_printf_u_help(arg, str, (int)ft_strlen(str));
-	if (!str)
-		free(str);
+	ft_strdel(&str);
 	str = NULL;
 }
