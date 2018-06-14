@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/03 02:01:38 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/14 15:39:39 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/14 16:05:52 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,9 @@ unsigned long long	ft_printf_get_unsigned_long(t_arg *arg, char ch)
 	else if (arg->length[0] == 'h' && ch == 'U')
 		return (va_arg(arg->ap, unsigned long long));
 	else if (arg->length[0] == 'h')
-		return ((unsigned short int)va_arg(arg->ap, unsigned int));
+		return (va_arg(arg->ap, unsigned int));
 	else if (arg->length[0] == 'j')
-		return ((unsigned long long)va_arg(arg->ap, unsigned long long));
+		return (va_arg(arg->ap, unsigned long long));
 	else if (arg->length[0] == 'z')
 		return ((unsigned long long)va_arg(arg->ap, size_t));
 	else if (ch == 'U')
