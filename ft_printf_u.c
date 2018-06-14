@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/30 14:35:23 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/14 15:00:24 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/14 15:02:19 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ char				*base_u(unsigned long long value, unsigned long long base)
 		nbr[i] = (value % base) + (value % base > 9 ? 'A' - 10 : '0');
 		value = value / base;
 	}
-	if (ft_strlen(nbr) > 1)
-	{
-		while (*nbr == '0')
-			nbr++;
-	}
+	// if (ft_strlen(nbr) > 1)
+	// {
+	// 	while (*nbr == '0')
+	// 		nbr++;
+	// }
 	return (nbr);
 }
 
