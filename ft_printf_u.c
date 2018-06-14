@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/30 14:35:23 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/14 15:02:19 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/14 15:12:47 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,29 @@ unsigned long long	ft_pow_u(unsigned long long nb, unsigned long long pow)
 		return (nb * ft_pow_u(nb, pow - 1));
 }
 
+char				*ft_free_zero(char *str, int len)
+{
+	char	*str1;
+	int		start;
+
+	start = (int)ft_strlen(str) - len;
+	str1 = malloc(sizeof(char) * start + 1);
+	start = 0;
+	while (str[len] != '\0')
+	{
+		str1[start++] = str[len];
+		len++;
+	}
+	str1[start] = '\0';
+	ft_strdel(&str);
+	return (str1);
+}
+
 char				*base_u(unsigned long long value, unsigned long long base)
 {
 	unsigned long long	i;
 	char				*nbr;
+	int					len;
 
 	i = 1;
 	while (ft_pow_u(base, i) - 1 < value)
@@ -36,11 +55,13 @@ char				*base_u(unsigned long long value, unsigned long long base)
 		nbr[i] = (value % base) + (value % base > 9 ? 'A' - 10 : '0');
 		value = value / base;
 	}
-	// if (ft_strlen(nbr) > 1)
-	// {
-	// 	while (*nbr == '0')
-	// 		nbr++;
-	// }
+	if (ft_strlen(nbr) > 1)
+	{
+		len = 0;
+		while (nbr[len] == '0')
+			len++;
+		nbr = ft_free_zero(nbr, len);
+	}
 	return (nbr);
 }
 
