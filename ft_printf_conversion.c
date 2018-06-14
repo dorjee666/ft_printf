@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/14 15:50:10 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/03 23:23:07 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/14 15:27:48 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	*ft_printf_conversion(char *format, t_arg *arg)
 	else if (*format == 'x' || *format == 'X')
 		ft_printf_conversion_x(arg, *format);
 	else if (*format == 'u' || *format == 'U')
-		ft_printf_conversion_u(arg);
+		ft_printf_conversion_u(arg, *format);
 	else if (*format == '%')
 		ft_printf_conversion_percent(arg);
 	format++;

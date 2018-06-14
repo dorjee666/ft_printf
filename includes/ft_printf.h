@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/07 12:58:04 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/12 20:11:43 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/14 15:27:20 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void				ft_printf_conversion_s(t_arg *arg, char *format);
 
 char				*ft_printf_itoa(unsigned long long n);
 
-unsigned long long	ft_printf_get_unsigned_long(t_arg *arg);
+unsigned long long	ft_printf_get_unsigned_long(t_arg *arg, char ch);
 
 /*
 **	ft_printf_o.c
@@ -118,7 +118,7 @@ void				ft_printf_conversion_p(t_arg *arg);
 **	ft_printf_u.c
 */
 
-void				ft_printf_conversion_u(t_arg *arg);
+void				ft_printf_conversion_u(t_arg *arg, char ch);
 
 /*
 **	ft_printf_x.c

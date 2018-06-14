@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/03 02:01:38 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/12 20:11:43 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/14 15:39:39 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char				*ft_printf_itoa(unsigned long long n)
 	return (str);
 }
 
-unsigned long long	ft_printf_get_unsigned_long(t_arg *arg)
+unsigned long long	ft_printf_get_unsigned_long(t_arg *arg, char ch)
 {
 	if (arg->length[0] == 'l' && arg->length[1] == 'l')
 		return (va_arg(arg->ap, unsigned long long));
@@ -67,11 +67,16 @@ unsigned long long	ft_printf_get_unsigned_long(t_arg *arg)
 		return ((unsigned long long)va_arg(arg->ap, unsigned long));
 	else if (arg->length[0] == 'h' && arg->length[1] == 'h')
 		return ((unsigned char)va_arg(arg->ap, unsigned int));
+	else if (arg->length[0] == 'h' && ch == 'U')
+		return (va_arg(arg->ap, unsigned long long));
 	else if (arg->length[0] == 'h')
 		return ((unsigned short int)va_arg(arg->ap, unsigned int));
 	else if (arg->length[0] == 'j')
 		return ((unsigned long long)va_arg(arg->ap, unsigned long long));
 	else if (arg->length[0] == 'z')
 		return ((unsigned long long)va_arg(arg->ap, size_t));
+	else if (ch == 'U')
+		return (va_arg(arg->ap, unsigned long));
+	ch = '\0';
 	return (va_arg(arg->ap, unsigned int));
 }
