@@ -112,7 +112,7 @@ void	ft_printf_d_minus(int len, char *str, t_arg *arg)
 
 void	ft_printf_conversion_d(t_arg *arg, char *format)
 {
-	long long	num;
+	intmax_t	num;
 	char		*str;
 	int			len;
 
