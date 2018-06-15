@@ -6,7 +6,7 @@
 /*   By: dphuntso <dphuntso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/13 16:59:43 by dphuntso          #+#    #+#             */
-/*   Updated: 2018/06/11 20:42:47 by dphuntso         ###   ########.fr       */
+/*   Updated: 2018/06/14 20:31:03 by dphuntso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,15 @@
 int		ft_printf_putstr(int num, char *str)
 {
 	int		i;
+	char	ch;
 
 	i = 0;
-	while (i < num)
-		write(1, &str[i++], 1);
-	return (num);
+	while (str && i < num && str[i] != '\0')
+	{
+		ch = str[i++];
+		write(1, &ch, 1);
+	}
+	return (i);
 }
 
 int		ft_printf_putwstr(int num, wchar_t *str)

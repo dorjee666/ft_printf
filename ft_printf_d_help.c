@@ -12,17 +12,17 @@
 
 #include "ft_printf.h"
 
-static	long long	ftlen(long long sign)
+static	intmax_t	ftlen(intmax_t sign)
 {
 	if (sign == 1)
 		return (0);
 	return (1);
 }
 
-static	char		*numtostr(long long n, int len, long long sign)
+static	char		*numtostr(intmax_t n, int len, intmax_t sign)
 {
 	char		*str;
-	long long	rem;
+	intmax_t	rem;
 
 	if ((str = (char *)malloc(len * sizeof(char) + 1)) == NULL)
 		return (NULL);
@@ -46,11 +46,11 @@ static	char		*numtostr(long long n, int len, long long sign)
 	return (str);
 }
 
-char				*ft_printf_d_itoa(long long n)
+char				*ft_printf_d_itoa(intmax_t n)
 {
 	char		*str;
-	long long	sign;
-	long long	ncopy;
+	intmax_t	sign;
+	intmax_t	ncopy;
 	int			len;
 
 	sign = (-1);
@@ -67,12 +67,12 @@ char				*ft_printf_d_itoa(long long n)
 	return (str);
 }
 
-long long			ft_printf_get_long(t_arg *arg, char *format)
+intmax_t			ft_printf_get_long(t_arg *arg, char *format)
 {
 	if (*format == 'D')
 		return ((long long)va_arg(arg->ap, long int));
 	else if (arg->length[0] == 'l' && arg->length[1] == 'l')
-		return (va_arg(arg->ap, long long));
+		return (va_arg(arg->ap, intmax_t));
 	else if (arg->length[0] == 'l')
 		return ((long long)va_arg(arg->ap, long int));
 	else if (arg->length[0] == 'h' && arg->length[1] == 'h')

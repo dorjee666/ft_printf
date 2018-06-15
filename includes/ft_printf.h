@@ -82,9 +82,9 @@ void				ft_printf_conversion_d(t_arg *arg, char *format);
 **	ft_printf_d_help.c
 */
 
-char				*ft_printf_d_itoa(long long n);
+char				*ft_printf_d_itoa(intmax_t n);
 
-long long			ft_printf_get_long(t_arg *arg, char *format);
+intmax_t			ft_printf_get_long(t_arg *arg, char *format);
 
 int					ft_printf_d_print(t_arg *arg, char *str, int len);
 
