@@ -44,8 +44,11 @@ fclean: clean
 	@/bin/rm -rf $(OBJS_DIR)
 	@rm -rf $(NAME)
 
-main:
+main_flags:
 	gcc main.c $(FLAGS) $(NAME) -I $(INCS_DIR)
+
+main:
+	gcc main.c $(NAME) -I $(INCS_DIR)
 
 re: fclean all
 
