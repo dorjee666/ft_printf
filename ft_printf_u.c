@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 unsigned long long	ft_pow_u(unsigned long long nb, unsigned long long pow)
 {
@@ -98,6 +97,8 @@ void				ft_printf_conversion_u(t_arg *arg, char ch)
 	char				*str;
 
 	num = ft_printf_get_unsigned_long(arg, ch);
+	if (num == 0 && arg->precision == 0)
+		return ;
 	str = base_u(num, 10);
 	ft_printf_u_help(arg, str, (int)ft_strlen(str));
 	ft_strdel(&str);

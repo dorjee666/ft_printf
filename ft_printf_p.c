@@ -31,7 +31,7 @@ static void	ft_printf_blah(char *str, int len)
 	}
 }
 
-void		ft_printf_p_help(t_arg *arg, char *str)
+void		ft_printf_p_help(t_arg *arg, char *str, int n)
 {
 	int len;
 
@@ -39,6 +39,8 @@ void		ft_printf_p_help(t_arg *arg, char *str)
 	if (arg->flag[1] != '-')
 		ft_printf_putchar(arg->width - len - 2, " ", arg);
 	write(1, "0x", 2);
+	if (arg->precision == 0 && n == 0)
+		return ;
 	arg->ret += len;
 	arg->ret += 2;
 	ft_printf_blah(str, len);
@@ -53,6 +55,6 @@ void		ft_printf_conversion_p(t_arg *arg)
 
 	num = (unsigned long long)va_arg(arg->ap, unsigned long long int);
 	str = ft_itoa_base(num, 16);
-	ft_printf_p_help(arg, str);
+	ft_printf_p_help(arg, str, num);
 	ft_strdel(&str);
 }
